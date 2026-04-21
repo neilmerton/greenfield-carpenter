@@ -1,17 +1,705 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Home"
+  description="Greenfield Carpentry — bespoke joinery, furniture and woodworking in Greenfield, near Manchester since 1987."
+>
+  <!-- =====================
+       Hero
+       ===================== -->
+  <section class="hero" aria-label="Introduction">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container hero__content">
+      <span class="hero__label">Est. 1987 · Greenfield, Manchester</span>
+      <h1 class="hero__title">The Art of<br />Fine Carpentry</h1>
+      <p class="hero__lead">
+        Bespoke joinery and hand-crafted woodwork, made to last a lifetime.
+        Serving homes across Greenfield, Saddleworth, and Greater Manchester.
+      </p>
+      <div class="hero__actions">
+        <a href="/services" class="btn btn--primary">Our Services</a>
+        <a href="/contact" class="btn btn--ghost">Get a Quote</a>
+      </div>
+    </div>
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <svg width="1" height="40" viewBox="0 0 1 40"
+        ><line
+          x1="0.5"
+          y1="0"
+          x2="0.5"
+          y2="40"
+          stroke="currentColor"
+          stroke-width="1"></line></svg
+      >
+    </div>
+  </section>
+
+  <!-- =====================
+       Credentials strip
+       ===================== -->
+  <section class="creds" aria-label="Credentials">
+    <div class="container creds__grid">
+      <div class="cred">
+        <span class="cred__number">35+</span>
+        <span class="cred__label">Years Experience</span>
+      </div>
+      <div class="cred__divider" aria-hidden="true"></div>
+      <div class="cred">
+        <span class="cred__number">800+</span>
+        <span class="cred__label">Projects Completed</span>
+      </div>
+      <div class="cred__divider" aria-hidden="true"></div>
+      <div class="cred">
+        <span class="cred__number">100%</span>
+        <span class="cred__label">Satisfaction Guarantee</span>
+      </div>
+      <div class="cred__divider" aria-hidden="true"></div>
+      <div class="cred">
+        <span class="cred__number">Local</span>
+        <span class="cred__label">Family Business</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       About snippet
+       ===================== -->
+  <section class="section" aria-label="About us">
+    <div class="container about-home">
+      <div class="about-home__image" aria-hidden="true">
+        <div class="wood-image wood-image--workshop">
+          <div class="wood-image__overlay">
+            <span class="wood-image__caption">The Workshop, Greenfield</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-home__text">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">
+          Craftsmanship Passed<br />Down Through Generations
+        </h2>
+        <p>
+          Founded by master craftsman Robert Hartley in 1987, Greenfield
+          Carpentry has built a reputation for uncompromising quality across the
+          Saddleworth valley and Greater Manchester.
+        </p>
+        <p>
+          Every piece we make begins with a conversation. We take time to
+          understand how you live, what you need, and what will endure — then we
+          set to work with seasoned hardwoods, traditional joinery techniques,
+          and an eye for detail that never wavers.
+        </p>
+        <a
+          href="/about"
+          class="btn btn--outline"
+          style="margin-top: var(--space-6);">Meet the Team</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       Services overview
+       ===================== -->
+  <section class="section section--alt" aria-label="Services overview">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What We Do</span>
+        <div class="title-rule">
+          <h2 class="section-title" style="margin:0;">Our Craft</h2>
+        </div>
+        <p class="section-intro">
+          From bespoke fitted furniture to full kitchen installations, every job
+          receives the same care and attention — however large or small.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        {
+          [
+            {
+              icon: "🪑",
+              title: "Bespoke Furniture",
+              desc: "Handmade tables, chairs, shelving and storage tailored to your space and style.",
+            },
+            {
+              icon: "🏠",
+              title: "Kitchen Fitting",
+              desc: "Fully fitted kitchens with solid timber doors, traditional detailing and expert installation.",
+            },
+            {
+              icon: "🪵",
+              title: "Staircases",
+              desc: "Elegant newel posts, handrails and balusters crafted in oak, ash or pine.",
+            },
+            {
+              icon: "🔨",
+              title: "Doors & Windows",
+              desc: "Solid hardwood doors, frames and windows built to outlast modern alternatives.",
+            },
+            {
+              icon: "📐",
+              title: "Flooring",
+              desc: "Solid and engineered hardwood floors, supplied and fitted to the highest standard.",
+            },
+            {
+              icon: "♻️",
+              title: "Restoration",
+              desc: "Sensitive restoration and repair of antique and period woodwork.",
+            },
+          ].map((s) => (
+            <article class="service-card">
+              <span class="service-card__icon" aria-hidden="true">
+                {s.icon}
+              </span>
+              <h3 class="service-card__title">{s.title}</h3>
+              <p class="service-card__desc">{s.desc}</p>
+            </article>
+          ))
+        }
+      </div>
+
+      <div style="text-align:center; margin-top: var(--space-12);">
+        <a href="/services" class="btn btn--primary">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       Gallery teaser
+       ===================== -->
+  <section class="section" aria-label="Recent work">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Work</span>
+        <div class="title-rule">
+          <h2 class="section-title" style="margin:0;">Recent Projects</h2>
+        </div>
+      </div>
+
+      <div class="gallery-teaser">
+        {
+          [
+            { label: "Oak Kitchen", tone: "warm" },
+            { label: "Walnut Dining Table", tone: "dark" },
+            { label: "Period Staircase Restoration", tone: "mid" },
+            { label: "Fitted Library", tone: "light" },
+          ].map((p) => (
+            <a
+              href="/gallery"
+              class="gallery-thumb"
+              aria-label={`View ${p.label} in gallery`}
+            >
+              <div class={`gallery-thumb__img gallery-thumb__img--${p.tone}`} />
+              <span class="gallery-thumb__label">{p.label}</span>
+            </a>
+          ))
+        }
+      </div>
+
+      <div style="text-align:center; margin-top: var(--space-10);">
+        <a href="/gallery" class="btn btn--outline">Browse Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       Testimonials
+       ===================== -->
+  <section class="section section--dark" aria-label="Testimonials">
+    <div class="container">
+      <span class="section-label" style="color: var(--color-gold-light);"
+        >What Clients Say</span
+      >
+      <div class="testimonials-grid">
+        {
+          [
+            {
+              quote:
+                "Robert and his team built us the most beautiful kitchen we could have imagined. The attention to detail was extraordinary — you can tell these are people who truly love their craft.",
+              author: "Sarah & James Whitfield",
+              location: "Uppermill",
+            },
+            {
+              quote:
+                "We had an old Victorian staircase in a terrible state. They restored it to better than its original condition. Absolutely outstanding workmanship.",
+              author: "David Pennington",
+              location: "Delph",
+            },
+            {
+              quote:
+                "We've used Greenfield Carpentry twice now. The bespoke fitted wardrobes are perfect — they look like they've always been part of the house.",
+              author: "The Moorhouse Family",
+              location: "Greenfield",
+            },
+          ].map((t) => (
+            <blockquote class="testimonial">
+              <p class="testimonial__quote">"{t.quote}"</p>
+              <footer class="testimonial__footer">
+                <span class="testimonial__author">{t.author}</span>
+                <span class="testimonial__location">{t.location}</span>
+              </footer>
+            </blockquote>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       CTA Banner
+       ===================== -->
+  <section class="cta-banner" aria-label="Call to action">
+    <div class="container cta-banner__inner">
+      <div>
+        <h2 class="cta-banner__title">Ready to Start Your Project?</h2>
+        <p class="cta-banner__sub">
+          Get in touch for a free consultation and no-obligation quote.
+        </p>
+      </div>
+      <div class="cta-banner__actions">
+        <a href="/contact" class="btn btn--primary">Request a Quote</a>
+        <a href="tel:+441457860000" class="btn btn--ghost">01457 860 000</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ---- Hero ---- */
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--color-wood-darkest);
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        92deg,
+        transparent,
+        transparent 4px,
+        rgba(255, 255, 255, 0.012) 4px,
+        rgba(255, 255, 255, 0.012) 8px
+      ),
+      repeating-linear-gradient(
+        180deg,
+        transparent,
+        transparent 60px,
+        rgba(164, 98, 46, 0.07) 60px,
+        rgba(164, 98, 46, 0.07) 61px
+      ),
+      radial-gradient(
+        ellipse at 70% 50%,
+        rgba(122, 74, 40, 0.35) 0%,
+        transparent 65%
+      );
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    padding-block: var(--space-32);
+    max-width: 660px;
+  }
+
+  .hero__label {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-gold-light);
+    margin-bottom: var(--space-5);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid rgba(196, 149, 42, 0.4);
+    border-radius: var(--radius-sm);
+  }
+
+  .hero__title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 7vw, 5rem);
+    line-height: 1.05;
+    color: var(--color-cream);
+    font-weight: normal;
+    letter-spacing: 0.01em;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__lead {
+    font-size: var(--text-md);
+    color: var(--color-wood-light);
+    line-height: var(--leading-loose);
+    max-width: 48ch;
+    margin-bottom: var(--space-10);
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .hero__scroll-hint {
+    position: absolute;
+    bottom: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-wood-light);
+    opacity: 0.45;
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ---- Credentials ---- */
+  .creds {
+    background: var(--color-wood-mid);
+    padding-block: var(--space-8);
+  }
+
+  .creds__grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .cred {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    text-align: center;
+  }
+
+  .cred__number {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    color: var(--color-cream);
+    line-height: 1;
+  }
+
+  .cred__label {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-wood-light);
+  }
+
+  .cred__divider {
+    display: none;
+    width: 1px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  @media (min-width: 641px) {
+    .creds__grid {
+      gap: var(--space-12);
+    }
+    .cred__divider {
+      display: block;
+    }
+  }
+
+  /* ---- About home ---- */
+  .about-home {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  .wood-image {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: var(--color-wood-dark);
+  }
+
+  .wood-image--workshop {
+    background-image:
+      repeating-linear-gradient(
+        85deg,
+        rgba(164, 98, 46, 0.15),
+        rgba(164, 98, 46, 0.15) 3px,
+        transparent 3px,
+        transparent 18px
+      ),
+      repeating-linear-gradient(
+        175deg,
+        rgba(122, 74, 40, 0.12),
+        rgba(122, 74, 40, 0.12) 2px,
+        transparent 2px,
+        transparent 24px
+      ),
+      linear-gradient(135deg, #4a2c17 0%, #6b3f2a 40%, #3d2410 100%);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .wood-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 30% 60%,
+      rgba(255, 200, 130, 0.1) 0%,
+      transparent 60%
+    );
+  }
+
+  .wood-image__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-4) var(--space-5);
+    background: linear-gradient(transparent, rgba(26, 14, 7, 0.7));
+  }
+
+  .wood-image__caption {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-wood-light);
+  }
+
+  @media (min-width: 960px) {
+    .about-home {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+    }
+  }
+
+  /* ---- Services grid ---- */
+  .section-header {
+    margin-bottom: var(--space-12);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .service-card {
+    background: var(--color-surface);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-8);
+    transition:
+      box-shadow var(--transition),
+      transform var(--transition);
+    border-top: 3px solid var(--color-gold);
+  }
+
+  .service-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+
+  .service-card__icon {
+    display: block;
+    font-size: 1.8rem;
+    margin-bottom: var(--space-4);
+    line-height: 1;
+  }
+
+  .service-card__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-3);
+    color: var(--color-ink);
+  }
+
+  .service-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: var(--leading-loose);
+    margin: 0;
+  }
+
+  @media (min-width: 561px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 901px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* ---- Gallery teaser ---- */
+  .gallery-teaser {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  .gallery-thumb {
+    display: block;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    text-decoration: none;
+  }
+
+  .gallery-thumb__img {
+    width: 100%;
+    height: 100%;
+    transition: transform var(--transition-slow);
+  }
+
+  .gallery-thumb:hover .gallery-thumb__img {
+    transform: scale(1.04);
+  }
+
+  .gallery-thumb__img--warm {
+    background: linear-gradient(160deg, #c4855a 0%, #7a4a28 60%, #4a2c17 100%);
+  }
+  .gallery-thumb__img--dark {
+    background: linear-gradient(160deg, #3d2b1f 0%, #5a3820 60%, #2a1a0e 100%);
+  }
+  .gallery-thumb__img--mid {
+    background: linear-gradient(160deg, #a0622e 0%, #6b3f2a 55%, #3d2410 100%);
+  }
+  .gallery-thumb__img--light {
+    background: linear-gradient(160deg, #d4a574 0%, #a0622e 55%, #6b3f2a 100%);
+  }
+
+  .gallery-thumb__label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-3) var(--space-4);
+    background: linear-gradient(transparent, rgba(26, 14, 7, 0.85));
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    color: var(--color-cream);
+    line-height: 1.3;
+  }
+
+  @media (min-width: 960px) {
+    .gallery-teaser {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* ---- Testimonials ---- */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    margin-top: var(--space-8);
+  }
+
+  .testimonial {
+    border-left: 3px solid var(--color-gold);
+    padding-left: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .testimonial__quote {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--text-md);
+    color: var(--color-parchment);
+    line-height: var(--leading-loose);
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  .testimonial__footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .testimonial__author {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-wood-light);
+  }
+
+  .testimonial__location {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold-light);
+    opacity: 0.7;
+  }
+
+  @media (min-width: 901px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-8);
+    }
+  }
+
+  /* ---- CTA Banner ---- */
+  .cta-banner {
+    background: var(--color-wood-mid);
+    padding-block: var(--space-16);
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 5px,
+      rgba(255, 255, 255, 0.015) 5px,
+      rgba(255, 255, 255, 0.015) 10px
+    );
+  }
+
+  .cta-banner__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .cta-banner__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    color: var(--color-cream);
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-banner__sub {
+    font-size: var(--text-md);
+    color: var(--color-wood-light);
+    margin: 0;
+  }
+
+  .cta-banner__actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+</style>

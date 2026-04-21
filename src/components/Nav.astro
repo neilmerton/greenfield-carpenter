@@ -1,0 +1,261 @@
+---
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header class="site-header">
+  <div class="header-inner container">
+    <a href="/" class="brand" aria-label="Greenfield Carpentry — home">
+      <span class="brand__icon" aria-hidden="true">
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect x="14" y="2" width="4" height="22" rx="1" fill="currentColor"
+          ></rect>
+          <rect x="6" y="10" width="20" height="4" rx="1" fill="currentColor"
+          ></rect>
+          <path d="M8 28 L16 18 L24 28 Z" fill="currentColor" opacity="0.6"
+          ></path>
+        </svg>
+      </span>
+      <span class="brand__text">
+        <span class="brand__name">Greenfield Carpentry</span>
+        <span class="brand__tagline">Est. 1987 · Greenfield, Manchester</span>
+      </span>
+    </a>
+
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-expanded="false"
+      aria-controls="mainNav"
+      aria-label="Toggle navigation"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav
+      class="main-nav"
+      id="mainNav"
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <ul class="nav-list">
+        {
+          navLinks.map((link) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.href);
+            return (
+              <li>
+                <a
+                  href={link.href}
+                  class={`nav-link${isActive ? " nav-link--active" : ""}`}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--color-nav-bg);
+    border-bottom: 3px solid var(--color-gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+    height: 64px;
+  }
+
+  /* Brand */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--color-parchment);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .brand:hover {
+    color: var(--color-wood-light);
+  }
+
+  .brand__icon {
+    color: var(--color-gold-light);
+    display: flex;
+    align-items: center;
+  }
+
+  .brand__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .brand__name {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    letter-spacing: 0.02em;
+  }
+
+  .brand__tagline {
+    display: none;
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    color: var(--color-wood-light);
+    text-transform: uppercase;
+  }
+
+  /* Nav — mobile default: hidden dropdown */
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-nav-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: var(--space-4) 0;
+  }
+
+  .main-nav.is-open {
+    display: block;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-link {
+    display: block;
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-nav-text);
+    padding: var(--space-4) var(--space-8);
+    border-radius: 0;
+    transition:
+      color var(--transition),
+      background var(--transition);
+    opacity: 0.8;
+  }
+
+  .nav-link:hover,
+  .nav-link--active {
+    color: var(--color-gold-light);
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-link--active {
+    border-bottom: none;
+    border-left: 3px solid var(--color-gold-light);
+    padding-bottom: var(--space-4);
+  }
+
+  /* Mobile toggle */
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .nav-toggle span {
+    display: block;
+    height: 2px;
+    background: var(--color-parchment);
+    border-radius: 1px;
+    transition:
+      transform var(--transition),
+      opacity var(--transition);
+  }
+
+  @media (min-width: 960px) {
+    .header-inner {
+      height: 72px;
+    }
+
+    .brand__tagline {
+      display: block;
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    .main-nav,
+    .main-nav.is-open {
+      display: flex;
+      position: static;
+      background: transparent;
+      border-top: none;
+      padding: 0;
+    }
+
+    .nav-list {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .nav-link {
+      display: inline-block;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-sm);
+    }
+
+    .nav-link--active {
+      border-left: none;
+      border-bottom: 2px solid var(--color-gold-light);
+      padding-bottom: calc(var(--space-2) - 2px);
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("navToggle");
+  const nav = document.getElementById("mainNav");
+  toggle?.addEventListener("click", () => {
+    const expanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!expanded));
+    nav?.classList.toggle("is-open");
+  });
+</script>

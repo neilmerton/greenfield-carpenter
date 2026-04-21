@@ -1,0 +1,212 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">Greenfield Carpentry</a>
+        <p class="footer-strap-line">
+          Traditional craftsmanship for the modern home.<br />
+          Serving Greenfield and the wider Manchester area since 1987.
+        </p>
+        <p class="footer-cert">
+          <span class="cert-badge">✦</span> Guild of Master Craftsmen Member
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-links">
+          <li><a href="/services">Bespoke Furniture</a></li>
+          <li><a href="/services">Kitchen Fitting</a></li>
+          <li><a href="/services">Staircases</a></li>
+          <li><a href="/services">Flooring</a></li>
+          <li><a href="/services">Restoration</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Get in Touch</h4>
+        <address class="footer-address">
+          <p>Greenfield, Oldham<br />Greater Manchester<br />OL3 7EA</p>
+          <p><a href="tel:+441457860000">01457 860 000</a></p>
+          <p>
+            <a href="mailto:hello@greenfieldcarpentry.co.uk"
+              >hello@greenfieldcarpentry.co.uk</a
+            >
+          </p>
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        &copy; {year} Greenfield Carpentry. All rights reserved.
+      </p>
+      <p class="footer-note">
+        Handcrafted with care in the heart of Saddleworth.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-footer-bg);
+    color: var(--color-parchment);
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-8);
+    border-top: 3px solid var(--color-gold);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    padding-bottom: var(--space-12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-logo {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    color: var(--color-parchment);
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-logo:hover {
+    color: var(--color-wood-light);
+  }
+
+  .footer-strap-line {
+    font-size: var(--text-sm);
+    color: var(--color-wood-light);
+    line-height: var(--leading-loose);
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-cert {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    color: var(--color-gold-light);
+    text-transform: uppercase;
+  }
+
+  .cert-badge {
+    color: var(--color-gold-light);
+  }
+
+  .footer-heading {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold-light);
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .footer-links a {
+    font-size: var(--text-sm);
+    color: var(--color-parchment);
+    opacity: 0.75;
+    transition:
+      opacity var(--transition),
+      color var(--transition);
+  }
+
+  .footer-links a:hover {
+    opacity: 1;
+    color: var(--color-wood-light);
+  }
+
+  .footer-address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--color-parchment);
+    opacity: 0.8;
+    line-height: var(--leading-loose);
+  }
+
+  .footer-address a {
+    color: inherit;
+    opacity: 1;
+  }
+
+  .footer-address a:hover {
+    color: var(--color-wood-light);
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-top: var(--space-8);
+    gap: var(--space-4);
+  }
+
+  .footer-copy {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    color: var(--color-parchment);
+    opacity: 0.5;
+    margin: 0;
+  }
+
+  .footer-note {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--text-sm);
+    color: var(--color-wood-light);
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  @media (min-width: 561px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+    .footer-bottom {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 901px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: var(--space-12);
+    }
+    .footer-brand {
+      grid-column: auto;
+    }
+  }
+</style>

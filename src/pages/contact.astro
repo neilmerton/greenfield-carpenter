@@ -1,0 +1,652 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Contact"
+  description="Get in touch with Greenfield Carpentry for a free consultation and quote. Based in Greenfield, Greater Manchester."
+>
+  <div class="page-header">
+    <span class="page-header__label">Get in Touch</span>
+    <h1 class="page-header__title">Contact Us</h1>
+    <p class="page-header__subtitle">
+      We offer a free, no-obligation home visit and quote anywhere in Greater
+      Manchester and Saddleworth.
+    </p>
+  </div>
+
+  <section class="section" aria-label="Contact form and details">
+    <div class="container contact-grid">
+      <!-- Form -->
+      <div class="contact-form-wrap">
+        <h2 class="contact-form-wrap__title">Send Us a Message</h2>
+        <p class="contact-form-wrap__intro">
+          Fill in the form below and we will get back to you within one working
+          day.
+        </p>
+
+        <form class="contact-form" name="contact" method="POST" novalidate>
+          <div class="form-row form-row--two">
+            <div class="form-field">
+              <label class="form-label" for="firstName">First name</label>
+              <input
+                class="form-input"
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+                autocomplete="given-name"
+                placeholder="Robert"
+              />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="lastName">Last name</label>
+              <input
+                class="form-input"
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+                autocomplete="family-name"
+                placeholder="Hartley"
+              />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="email">Email address</label>
+            <input
+              class="form-input"
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="phone"
+              >Phone number <span class="form-label__optional">(optional)</span
+              ></label
+            >
+            <input
+              class="form-input"
+              type="tel"
+              id="phone"
+              name="phone"
+              autocomplete="tel"
+              placeholder="01457 000 000"
+            />
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="service">Service of interest</label>
+            <div class="select-wrap">
+              <select class="form-select" id="service" name="service">
+                <option value="">— Select a service —</option>
+                <option>Bespoke Furniture</option>
+                <option>Kitchen Fitting</option>
+                <option>Staircase</option>
+                <option>Doors &amp; Windows</option>
+                <option>Hardwood Flooring</option>
+                <option>Restoration &amp; Repair</option>
+                <option>Other / Not Sure Yet</option>
+              </select>
+              <span class="select-arrow" aria-hidden="true">▾</span>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="location"
+              >Your town or postcode</label
+            >
+            <input
+              class="form-input"
+              type="text"
+              id="location"
+              name="location"
+              placeholder="e.g. Uppermill, OL3"
+            />
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="message"
+              >Tell us about your project</label
+            >
+            <textarea
+              class="form-textarea"
+              id="message"
+              name="message"
+              rows="6"
+              required
+              placeholder="Describe what you have in mind — dimensions, materials, timescales, any special requirements…"
+            ></textarea>
+          </div>
+
+          <div class="form-field form-field--checkbox">
+            <label class="form-check">
+              <input
+                type="checkbox"
+                name="homeVisit"
+                class="form-check__input"
+              />
+              <span class="form-check__box" aria-hidden="true"></span>
+              <span class="form-check__label"
+                >I would like a free home visit and consultation</span
+              >
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--full"
+            >Send Enquiry</button
+          >
+
+          <p class="form-privacy">
+            We will only use your details to respond to your enquiry. We never
+            share your data with third parties.
+          </p>
+        </form>
+      </div>
+
+      <!-- Info sidebar -->
+      <aside class="contact-info">
+        <div class="info-card">
+          <h3 class="info-card__heading">Contact Details</h3>
+          <address class="info-list">
+            <div class="info-item">
+              <span class="info-item__icon" aria-hidden="true">📍</span>
+              <div>
+                <span class="info-item__label">Workshop &amp; Showroom</span>
+                <span class="info-item__value">
+                  Unit 7, Chew Valley Trading Estate<br />
+                  Greenfield, Oldham<br />
+                  Greater Manchester, OL3 7EA
+                </span>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icon" aria-hidden="true">📞</span>
+              <div>
+                <span class="info-item__label">Telephone</span>
+                <a
+                  href="tel:+441457860000"
+                  class="info-item__value info-item__value--link"
+                  >01457 860 000</a
+                >
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icon" aria-hidden="true">✉️</span>
+              <div>
+                <span class="info-item__label">Email</span>
+                <a
+                  href="mailto:hello@greenfieldcarpentry.co.uk"
+                  class="info-item__value info-item__value--link"
+                >
+                  hello@greenfieldcarpentry.co.uk
+                </a>
+              </div>
+            </div>
+          </address>
+        </div>
+
+        <div class="info-card">
+          <h3 class="info-card__heading">Opening Hours</h3>
+          <table class="hours-table">
+            <tbody>
+              {
+                [
+                  { day: "Monday – Friday", hours: "8:00 am – 5:30 pm" },
+                  { day: "Saturday", hours: "9:00 am – 1:00 pm" },
+                  { day: "Sunday", hours: "Closed" },
+                ].map((row) => (
+                  <tr>
+                    <td class="hours-table__day">{row.day}</td>
+                    <td class="hours-table__hours">{row.hours}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+          <p class="info-note">
+            Workshop visits welcome during opening hours. Evening consultations
+            available by appointment.
+          </p>
+        </div>
+
+        <div class="info-card info-card--warm">
+          <h3 class="info-card__heading" style="color: var(--color-cream);">
+            Free Home Visit
+          </h3>
+          <p class="info-card__body">
+            We come to you. Our free consultation includes a full site survey,
+            material recommendations, and a detailed written quotation — all
+            with no obligation whatsoever.
+          </p>
+          <p class="info-card__area">
+            <span class="info-card__area-label">Coverage area:</span>
+            Greater Manchester, Saddleworth, Tameside and surrounding areas within
+            25 miles.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Map placeholder -->
+  <section class="map-section" aria-label="Location">
+    <div class="map-placeholder">
+      <div class="map-placeholder__inner">
+        <span class="map-placeholder__icon" aria-hidden="true">📍</span>
+        <p class="map-placeholder__label">Greenfield, Greater Manchester</p>
+        <p class="map-placeholder__note">
+          Unit 7, Chew Valley Trading Estate, OL3 7EA
+        </p>
+        <a
+          href="https://www.google.com/maps/search/Greenfield+Oldham+OL3"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--outline"
+        >
+          Open in Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    align-items: start;
+  }
+
+  /* Form */
+  .contact-form-wrap__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .contact-form-wrap__intro {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-8);
+    line-height: var(--leading-loose);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .form-row--two {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .form-label {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    letter-spacing: 0.05em;
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  .form-label__optional {
+    font-weight: normal;
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-3) var(--space-4);
+    transition:
+      border-color var(--transition),
+      box-shadow var(--transition);
+    width: 100%;
+    outline: none;
+    appearance: none;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: var(--color-wood-mid);
+    box-shadow: 0 0 0 3px rgba(122, 74, 40, 0.12);
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: var(--color-parchment-mid);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  .select-wrap {
+    position: relative;
+  }
+
+  .select-arrow {
+    position: absolute;
+    right: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  /* Checkbox */
+  .form-field--checkbox {
+    flex-direction: row;
+  }
+
+  .form-check {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    cursor: pointer;
+  }
+
+  .form-check__input {
+    display: none;
+  }
+
+  .form-check__box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      background var(--transition),
+      border-color var(--transition);
+  }
+
+  .form-check__input:checked + .form-check__box {
+    background: var(--color-wood-mid);
+    border-color: var(--color-wood-mid);
+  }
+
+  .form-check__input:checked + .form-check__box::after {
+    content: "✓";
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .form-check__label {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .btn--full {
+    width: 100%;
+    text-align: center;
+  }
+
+  .form-privacy {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-align: center;
+    margin: 0;
+    opacity: 0.7;
+  }
+
+  /* Info sidebar — shown above form on mobile */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    order: -1;
+  }
+
+  .info-card {
+    background: var(--color-surface);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-7);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .info-card--warm {
+    background: var(--color-wood-mid);
+    border-color: var(--color-wood-mid);
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 4px,
+      rgba(255, 255, 255, 0.015) 4px,
+      rgba(255, 255, 255, 0.015) 8px
+    );
+  }
+
+  .info-card__heading {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--space-5);
+  }
+
+  .info-card--warm .info-card__heading {
+    color: var(--color-gold-light);
+  }
+
+  .info-list {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .info-item {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .info-item__icon {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+
+  .info-item__label {
+    display: block;
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-1);
+  }
+
+  .info-item__value {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--color-ink);
+    line-height: var(--leading-loose);
+  }
+
+  .info-item__value--link {
+    color: var(--color-accent);
+    transition: color var(--transition);
+  }
+
+  .info-item__value--link:hover {
+    color: var(--color-accent-hover);
+  }
+
+  /* Hours table */
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--space-4);
+  }
+
+  .hours-table td {
+    padding: var(--space-2) 0;
+    font-size: var(--text-sm);
+    border-bottom: 1px solid var(--color-parchment);
+  }
+
+  .hours-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .hours-table__day {
+    color: var(--color-ink);
+  }
+  .hours-table__hours {
+    text-align: right;
+    color: var(--color-text-muted);
+  }
+
+  .info-note {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0;
+    line-height: var(--leading-loose);
+  }
+
+  /* Warm card */
+  .info-card__body {
+    font-size: var(--text-sm);
+    color: var(--color-parchment);
+    line-height: var(--leading-loose);
+    margin-bottom: var(--space-4);
+    opacity: 0.9;
+  }
+
+  .info-card__area {
+    font-size: var(--text-xs);
+    color: var(--color-wood-light);
+    line-height: var(--leading-loose);
+    margin: 0;
+  }
+
+  .info-card__area-label {
+    font-family: var(--font-ui);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--color-gold-light);
+  }
+
+  /* Map */
+  .map-section {
+    margin-top: 0;
+  }
+
+  .map-placeholder {
+    height: 340px;
+    background: var(--color-parchment);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.03),
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 40px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.03),
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 40px
+      );
+    border-top: var(--border);
+  }
+
+  .map-placeholder__inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    background: var(--color-surface);
+    padding: var(--space-8) var(--space-10);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    border: var(--border);
+  }
+
+  .map-placeholder__icon {
+    font-size: 2rem;
+  }
+
+  .map-placeholder__label {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  .map-placeholder__note {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  @media (min-width: 901px) {
+    .contact-grid {
+      grid-template-columns: 1fr 380px;
+      gap: var(--space-16);
+    }
+    .contact-info {
+      order: 0;
+    }
+    .form-row--two {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>(".contact-form");
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const btn = form.querySelector<HTMLButtonElement>('[type="submit"]');
+    if (btn) {
+      btn.textContent = "Message sent — thank you!";
+      btn.disabled = true;
+      btn.style.background = "var(--color-forest)";
+    }
+  });
+</script>

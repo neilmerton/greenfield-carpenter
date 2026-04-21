@@ -1,0 +1,418 @@
+/* ===========================
+   Design System — CSS Variables
+   =========================== */
+:root {
+  /* Colour palette — warm wood & craftsman tones */
+  --color-wood-darkest: #2a1a0e;
+  --color-wood-dark: #4a2c17;
+  --color-wood-mid: #7a4a28;
+  --color-wood-warm: #a0622e;
+  --color-wood-grain: #c4855a;
+  --color-wood-light: #d4a574;
+  --color-cream: #f7f1e6;
+  --color-parchment: #ede4cf;
+  --color-parchment-mid: #ddd0b4;
+  --color-charcoal: #1e1e1e;
+  --color-ink: #2c2416;
+  --color-forest: #3a5c3e;
+  --color-forest-light: #527a56;
+  --color-gold: #9a7020;
+  --color-gold-light: #c4952a;
+  --color-white: #fdfaf4;
+
+  /* Semantic aliases */
+  --color-bg: var(--color-cream);
+  --color-bg-alt: var(--color-parchment);
+  --color-surface: var(--color-white);
+  --color-text: var(--color-ink);
+  --color-text-muted: #6b5840;
+  --color-accent: var(--color-wood-mid);
+  --color-accent-hover: var(--color-wood-dark);
+  --color-border: var(--color-parchment-mid);
+  --color-nav-bg: var(--color-wood-darkest);
+  --color-nav-text: var(--color-parchment);
+  --color-footer-bg: var(--color-wood-darkest);
+
+  /* Typography */
+  --font-heading: Georgia, 'Times New Roman', serif;
+  --font-body: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --font-ui: 'Trebuchet MS', 'Gill Sans', sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: 3rem;
+  --text-4xl: 4rem;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.6;
+  --leading-loose: 1.8;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Layout */
+  --max-width: 1140px;
+  --max-width-prose: 720px;
+  --gutter: var(--space-6);
+
+  /* Borders & radii */
+  --radius-sm: 2px;
+  --radius: 4px;
+  --radius-lg: 8px;
+  --border: 1px solid var(--color-border);
+  --border-mid: 2px solid var(--color-border);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 4px rgba(42, 26, 14, 0.12);
+  --shadow: 0 4px 16px rgba(42, 26, 14, 0.15);
+  --shadow-lg: 0 8px 32px rgba(42, 26, 14, 0.22);
+
+  /* Motion */
+  --transition: 0.25s ease;
+  --transition-slow: 0.45s ease;
+}
+
+/* ===========================
+   Reset & Base
+   =========================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ===========================
+   Typography
+   =========================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  line-height: var(--leading-tight);
+}
+
+h1 {
+  font-size: var(--text-2xl);
+}
+
+h2 {
+  font-size: var(--text-2xl);
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+h4 {
+  font-size: var(--text-xl);
+}
+
+h5 {
+  font-size: var(--text-lg);
+}
+
+h6 {
+  font-size: var(--text-md);
+}
+
+p {
+  margin-bottom: var(--space-4);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===========================
+   Layout Utilities
+   =========================== */
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.prose {
+  max-width: var(--max-width-prose);
+}
+
+.section {
+  padding-block: var(--space-16);
+}
+
+.section--alt {
+  background-color: var(--color-bg-alt);
+}
+
+.section--dark {
+  background-color: var(--color-wood-dark);
+  color: var(--color-parchment);
+}
+
+.section--dark h2,
+.section--dark h3,
+.section--dark h4 {
+  color: var(--color-parchment);
+}
+
+/* Section headings */
+.section-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-3);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-6);
+}
+
+.section-intro {
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+  max-width: 60ch;
+  line-height: var(--leading-loose);
+}
+
+.title-rule {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.title-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.4;
+}
+
+/* ===========================
+   Buttons
+   =========================== */
+.btn {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: var(--space-3) var(--space-8);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  border: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--color-wood-mid);
+  color: var(--color-white);
+  border-color: var(--color-wood-mid);
+}
+
+.btn--primary:hover {
+  background: var(--color-wood-dark);
+  border-color: var(--color-wood-dark);
+  color: var(--color-white);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-wood-mid);
+  border-color: var(--color-wood-mid);
+}
+
+.btn--outline:hover {
+  background: var(--color-wood-mid);
+  color: var(--color-white);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-parchment);
+  border-color: var(--color-parchment);
+}
+
+.btn--ghost:hover {
+  background: var(--color-parchment);
+  color: var(--color-wood-dark);
+}
+
+/* ===========================
+   Decorative divider
+   =========================== */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-block: var(--space-12);
+  color: var(--color-gold);
+  opacity: 0.6;
+}
+
+.ornament::before,
+.ornament::after {
+  content: '';
+  height: 1px;
+  width: 80px;
+  background: currentColor;
+}
+
+/* ===========================
+   Page header (inner pages)
+   =========================== */
+.page-header {
+  background-color: var(--color-wood-dark);
+  background-image:
+    repeating-linear-gradient(90deg,
+      transparent,
+      transparent 3px,
+      rgba(255, 255, 255, 0.015) 3px,
+      rgba(255, 255, 255, 0.015) 6px);
+  padding-block: var(--space-20);
+  text-align: center;
+}
+
+.page-header__label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  margin-bottom: var(--space-3);
+}
+
+.page-header__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  color: var(--color-cream);
+  font-weight: normal;
+}
+
+.page-header__subtitle {
+  margin-top: var(--space-4);
+  font-size: var(--text-md);
+  color: var(--color-wood-light);
+  max-width: 54ch;
+  margin-inline: auto;
+  line-height: var(--leading-loose);
+}
+
+/* ===========================
+   Cards
+   =========================== */
+.card {
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow);
+}
+
+/* ===========================
+   Responsive helpers
+   =========================== */
+@media (min-width: 481px) {
+  h1 {
+    font-size: var(--text-3xl);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --gutter: var(--space-8);
+  }
+
+  h1 {
+    font-size: var(--text-4xl);
+  }
+
+  h2 {
+    font-size: var(--text-3xl);
+  }
+
+  h3 {
+    font-size: var(--text-2xl);
+  }
+
+  .page-header__title {
+    font-size: var(--text-4xl);
+  }
+
+  .section {
+    padding-block: var(--space-24);
+  }
+}

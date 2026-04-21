@@ -1,0 +1,435 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const services = [
+  {
+    id: "bespoke-furniture",
+    title: "Bespoke Furniture",
+    icon: "🪑",
+    summary:
+      "Handmade to your exact measurements and specification in our Greenfield workshop.",
+    detail: `Every piece of furniture we make is entirely bespoke — conceived in conversation with you and built
+    by hand in our workshop from sustainably sourced hardwoods. Whether it is a dining table that will sit at
+    the heart of family life for generations, a set of bookcases to fill an awkward alcove, or a window seat
+    with hidden storage, we will design and craft something that fits your home and your life perfectly.`,
+    materials: [
+      "English Oak",
+      "American Walnut",
+      "Ash",
+      "Scots Pine",
+      "Cherry",
+    ],
+  },
+  {
+    id: "kitchen-fitting",
+    title: "Kitchen Fitting",
+    icon: "🏠",
+    summary:
+      "Solid timber kitchens designed around your space, installed with exacting precision.",
+    detail: `A hand-crafted kitchen is the centrepiece of any home. We work with you from the first sketch to
+    the final fitting, designing kitchens that combine practicality with enduring beauty. Our timber doors,
+    hand-painted finishes, and traditional joinery details set our kitchens apart from mass-produced alternatives.
+    We also supply and fit all associated worktops, appliances, and plumbing connections.`,
+    materials: [
+      "Painted Hardwood",
+      "Solid Oak",
+      "Shaker Style",
+      "In-frame",
+      "Handleless",
+    ],
+  },
+  {
+    id: "staircases",
+    title: "Staircases",
+    icon: "🪜",
+    summary:
+      "Elegant staircases crafted in oak, ash or pine — new builds and refurbishments.",
+    detail: `A staircase is one of the most visible and structural elements in a home. We design and build new
+    staircases for extensions and new builds, as well as replacing and refurbishing existing ones. From a classic
+    closed-string stair with turned newels, to an open-riser contemporary design with glass balustrades, our
+    joinery team will create a staircase that is both beautiful and supremely practical.`,
+    materials: ["Oak", "Ash", "Pine", "Hemlock", "Painted Softwood"],
+  },
+  {
+    id: "doors-windows",
+    title: "Doors & Windows",
+    icon: "🚪",
+    summary:
+      "Solid hardwood doors and windows built to stand the test of time.",
+    detail: `Modern UPVC and composite joinery simply cannot match the beauty, longevity, and repairability of
+    solid timber. We manufacture and fit external doors, internal doors, timber windows, and French doors to
+    your exact dimensions and style requirements. All external timber is finished with premium microporous paints
+    and stains to protect against the Pennine weather.`,
+    materials: ["Accoya", "Oak", "Meranti", "Sapele", "Painted Hardwood"],
+  },
+  {
+    id: "flooring",
+    title: "Hardwood Flooring",
+    icon: "📐",
+    summary:
+      "Solid and engineered hardwood floors supplied and laid to the highest standard.",
+    detail: `A hardwood floor transforms a room. We supply a wide range of solid and engineered hardwood flooring
+    and lay it with care and precision, including secret nailing, gluing, and underfloor heating compatibility.
+    We can also sand, repair, and refinish existing hardwood floors that have seen better days — often achieving
+    results that look better than the original.`,
+    materials: [
+      "Solid Oak",
+      "Engineered Oak",
+      "Ash",
+      "Walnut",
+      "Reclaimed Boards",
+    ],
+  },
+  {
+    id: "restoration",
+    title: "Restoration & Repair",
+    icon: "♻️",
+    summary:
+      "Sensitive restoration of antique, period, and sentimental woodwork.",
+    detail: `Old timber has a character and quality that cannot be replicated. We restore period staircases,
+    antique furniture, Victorian sash windows, and heritage joinery features with sensitivity and skill,
+    always aiming to preserve as much original material as possible. If you have a piece of furniture with
+    sentimental value that has seen better days, bring it to us — we often surprise people with what can
+    be achieved.`,
+    materials: ["Oak", "Mahogany", "Walnut", "Pine", "Ebony Inlay"],
+  },
+];
+---
+
+<Layout
+  title="Services"
+  description="Bespoke joinery and carpentry services in Greenfield — furniture, kitchens, staircases, doors, flooring, and restoration."
+>
+  <div class="page-header">
+    <span class="page-header__label">What We Offer</span>
+    <h1 class="page-header__title">Our Services</h1>
+    <p class="page-header__subtitle">
+      Every project begins with a conversation. Here is what we build, fit, and
+      restore.
+    </p>
+  </div>
+
+  <!-- Service nav anchors -->
+  <nav class="services-nav" aria-label="Jump to service">
+    <div class="container services-nav__inner">
+      {
+        services.map((s) => (
+          <a href={`#${s.id}`} class="services-nav__link">
+            {s.title}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+
+  <!-- Service sections -->
+  {
+    services.map((s, i) => (
+      <section
+        id={s.id}
+        class={`section service-section${i % 2 !== 0 ? " section--alt" : ""}`}
+        aria-label={s.title}
+      >
+        <div class="container service-section__grid">
+          <div class="service-section__content">
+            <span class="section-label">
+              {s.icon} {s.title}
+            </span>
+            <h2 class="service-section__title">{s.title}</h2>
+            <p class="service-section__summary">{s.summary}</p>
+            <p class="service-section__detail">{s.detail}</p>
+
+            <div class="materials">
+              <h3 class="materials__heading">Common Materials</h3>
+              <ul class="materials__list">
+                {s.materials.map((m) => (
+                  <li class="materials__item">{m}</li>
+                ))}
+              </ul>
+            </div>
+
+            <a
+              href="/contact"
+              class="btn btn--primary"
+              style="margin-top: var(--space-6);"
+            >
+              Enquire About This Service
+            </a>
+          </div>
+
+          <aside class="service-section__visual" aria-hidden="true">
+            <div class={`service-visual service-visual--${i}`} />
+            <div class="service-visual__badge">
+              <span class="service-visual__badge-icon">{s.icon}</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+    ))
+  }
+
+  <!-- Process strip -->
+  <section class="section section--dark" aria-label="Our process">
+    <div class="container">
+      <span class="section-label" style="color: var(--color-gold-light);"
+        >How It Works</span
+      >
+      <h2
+        class="section-title"
+        style="color: var(--color-cream); margin-bottom: var(--space-12);"
+      >
+        From Idea to Installation
+      </h2>
+      <div class="process-steps">
+        {
+          [
+            {
+              n: "01",
+              title: "Consultation",
+              desc: "We visit your home to discuss your requirements, take measurements, and understand your vision.",
+            },
+            {
+              n: "02",
+              title: "Design",
+              desc: "We prepare detailed drawings and material samples for your review and approval.",
+            },
+            {
+              n: "03",
+              title: "Crafting",
+              desc: "Your piece is made by hand in our Greenfield workshop using the finest sustainable timbers.",
+            },
+            {
+              n: "04",
+              title: "Installation",
+              desc: "Our team fits your new joinery with care, protecting your home throughout.",
+            },
+          ].map((step) => (
+            <div class="process-step">
+              <span class="process-step__num">{step.n}</span>
+              <h3 class="process-step__title">{step.title}</h3>
+              <p class="process-step__desc">{step.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="text-align:center;">
+    <div class="container">
+      <h2 class="section-title">Ready to Discuss Your Project?</h2>
+      <p
+        class="section-intro"
+        style="margin-inline: auto; margin-bottom: var(--space-8);"
+      >
+        We offer a free, no-obligation home visit anywhere in Greater Manchester
+        and Saddleworth.
+      </p>
+      <a href="/contact" class="btn btn--primary">Get in Touch</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .services-nav {
+    background: var(--color-surface);
+    border-bottom: var(--border);
+    position: sticky;
+    top: 64px;
+    z-index: 50;
+  }
+
+  .services-nav__inner {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .services-nav__inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .services-nav__link {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    padding: var(--space-4) var(--space-5);
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition:
+      color var(--transition),
+      border-color var(--transition);
+  }
+
+  .services-nav__link:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-gold);
+  }
+
+  /* Service sections */
+  .service-section__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  .service-section__title {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-4);
+  }
+
+  .service-section__summary {
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-5);
+    line-height: var(--leading-loose);
+  }
+
+  .service-section__detail {
+    color: var(--color-text-muted);
+    line-height: var(--leading-loose);
+    margin-bottom: var(--space-6);
+  }
+
+  /* Materials */
+  .materials__heading {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--space-3);
+  }
+
+  .materials__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .materials__item {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    background: var(--color-parchment);
+    color: var(--color-wood-dark);
+    padding: var(--space-1) var(--space-3);
+    border-radius: 100px;
+    border: 1px solid var(--color-parchment-mid);
+    letter-spacing: 0.05em;
+  }
+
+  /* Visual panels */
+  .service-section__visual {
+    display: none;
+    position: relative;
+  }
+
+  .service-visual {
+    aspect-ratio: 4/3;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-visual--0 {
+    background: linear-gradient(135deg, #c4855a 0%, #7a4a28 50%, #3d2410 100%);
+  }
+  .service-visual--1 {
+    background: linear-gradient(135deg, #4a2c17 0%, #a0622e 55%, #6b3f2a 100%);
+  }
+  .service-visual--2 {
+    background: linear-gradient(135deg, #3a5c3e 0%, #4a2c17 55%, #2a1a0e 100%);
+  }
+  .service-visual--3 {
+    background: linear-gradient(135deg, #6b3f2a 0%, #9a7020 55%, #4a2c17 100%);
+  }
+  .service-visual--4 {
+    background: linear-gradient(135deg, #d4a574 0%, #a0622e 55%, #4a2c17 100%);
+  }
+  .service-visual--5 {
+    background: linear-gradient(135deg, #2a1a0e 0%, #6b3f2a 55%, #c4855a 100%);
+  }
+
+  .service-visual__badge {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    width: 64px;
+    height: 64px;
+    background: var(--color-wood-mid);
+    border: 3px solid var(--color-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: var(--shadow);
+  }
+
+  /* Process */
+  .process-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .process-step {
+    border-left: 1px solid rgba(196, 149, 42, 0.3);
+    padding-left: var(--space-6);
+  }
+
+  .process-step__num {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    color: var(--color-gold);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: var(--space-3);
+  }
+
+  .process-step__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    color: var(--color-cream);
+    margin-bottom: var(--space-3);
+  }
+
+  .process-step__desc {
+    font-size: var(--text-sm);
+    color: var(--color-wood-light);
+    line-height: var(--leading-loose);
+    margin: 0;
+    opacity: 0.85;
+  }
+
+  @media (min-width: 561px) {
+    .process-steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 960px) {
+    .services-nav {
+      top: 72px;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .service-section__grid {
+      grid-template-columns: 1fr 420px;
+      gap: var(--space-16);
+    }
+    .service-section__visual {
+      display: block;
+    }
+    .process-steps {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>
