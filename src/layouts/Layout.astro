@@ -1,7 +1,7 @@
 ---
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 
 interface Props {
   title: string;
@@ -10,7 +10,7 @@ interface Props {
 
 const {
   title,
-  description = 'Greenfield Carpentry — bespoke joinery and woodworking in Greenfield, near Manchester. Est. 1987.'
+  description = "Greenfield Carpentry - bespoke joinery and woodworking in Greenfield, near Manchester. Est. 1987.",
 } = Astro.props;
 ---
 
@@ -22,7 +22,7 @@ const {
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-    <title>{title} — Greenfield Carpentry</title>
+    <title>{title} - Greenfield Carpentry</title>
   </head>
   <body>
     <Nav />
