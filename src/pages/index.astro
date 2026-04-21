@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { credentials, homeServices, galleryTeaser, testimonials } from "../data/index.ts";
 ---
 
 <Layout
@@ -42,25 +43,19 @@ import Layout from "../layouts/Layout.astro";
        ===================== -->
   <section class="creds" aria-label="Credentials">
     <div class="container creds__grid">
-      <div class="cred">
-        <span class="cred__number">35+</span>
-        <span class="cred__label">Years Experience</span>
-      </div>
-      <div class="cred__divider" aria-hidden="true"></div>
-      <div class="cred">
-        <span class="cred__number">800+</span>
-        <span class="cred__label">Projects Completed</span>
-      </div>
-      <div class="cred__divider" aria-hidden="true"></div>
-      <div class="cred">
-        <span class="cred__number">100%</span>
-        <span class="cred__label">Satisfaction Guarantee</span>
-      </div>
-      <div class="cred__divider" aria-hidden="true"></div>
-      <div class="cred">
-        <span class="cred__number">Local</span>
-        <span class="cred__label">Family Business</span>
-      </div>
+      {
+        credentials.map((c, i) => (
+          <Fragment>
+            <div class="cred">
+              <span class="cred__number">{c.number}</span>
+              <span class="cred__label">{c.label}</span>
+            </div>
+            {i < credentials.length - 1 && (
+              <div class="cred__divider" aria-hidden="true"></div>
+            )}
+          </Fragment>
+        ))
+      }
     </div>
   </section>
 
@@ -119,38 +114,7 @@ import Layout from "../layouts/Layout.astro";
 
       <div class="services-grid">
         {
-          [
-            {
-              icon: "🪑",
-              title: "Bespoke Furniture",
-              desc: "Handmade tables, chairs, shelving and storage tailored to your space and style.",
-            },
-            {
-              icon: "🏠",
-              title: "Kitchen Fitting",
-              desc: "Fully fitted kitchens with solid timber doors, traditional detailing and expert installation.",
-            },
-            {
-              icon: "🪵",
-              title: "Staircases",
-              desc: "Elegant newel posts, handrails and balusters crafted in oak, ash or pine.",
-            },
-            {
-              icon: "🔨",
-              title: "Doors & Windows",
-              desc: "Solid hardwood doors, frames and windows built to outlast modern alternatives.",
-            },
-            {
-              icon: "📐",
-              title: "Flooring",
-              desc: "Solid and engineered hardwood floors, supplied and fitted to the highest standard.",
-            },
-            {
-              icon: "♻️",
-              title: "Restoration",
-              desc: "Sensitive restoration and repair of antique and period woodwork.",
-            },
-          ].map((s) => (
+          homeServices.map((s) => (
             <article class="service-card">
               <span class="service-card__icon" aria-hidden="true">
                 {s.icon}
@@ -182,12 +146,7 @@ import Layout from "../layouts/Layout.astro";
 
       <div class="gallery-teaser">
         {
-          [
-            { label: "Oak Kitchen", tone: "warm" },
-            { label: "Walnut Dining Table", tone: "dark" },
-            { label: "Period Staircase Restoration", tone: "mid" },
-            { label: "Fitted Library", tone: "light" },
-          ].map((p) => (
+          galleryTeaser.map((p) => (
             <a
               href="/gallery"
               class="gallery-thumb"
@@ -216,26 +175,7 @@ import Layout from "../layouts/Layout.astro";
       >
       <div class="testimonials-grid">
         {
-          [
-            {
-              quote:
-                "Robert and his team built us the most beautiful kitchen we could have imagined. The attention to detail was extraordinary — you can tell these are people who truly love their craft.",
-              author: "Sarah & James Whitfield",
-              location: "Uppermill",
-            },
-            {
-              quote:
-                "We had an old Victorian staircase in a terrible state. They restored it to better than its original condition. Absolutely outstanding workmanship.",
-              author: "David Pennington",
-              location: "Delph",
-            },
-            {
-              quote:
-                "We've used Greenfield Carpentry twice now. The bespoke fitted wardrobes are perfect — they look like they've always been part of the house.",
-              author: "The Moorhouse Family",
-              location: "Greenfield",
-            },
-          ].map((t) => (
+          testimonials.map((t) => (
             <blockquote class="testimonial">
               <p class="testimonial__quote">"{t.quote}"</p>
               <footer class="testimonial__footer">

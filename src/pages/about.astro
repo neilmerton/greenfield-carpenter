@@ -1,60 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const team = [
-  {
-    name: "Robert Hartley",
-    role: "Founder & Master Carpenter",
-    bio: `Robert completed his City & Guilds apprenticeship in 1982 and founded Greenfield Carpentry
-    five years later from a small workshop off Chew Valley Road. With over 40 years of hands-on
-    experience, he still takes the plane to every finished surface personally. He holds membership
-    of the Guild of Master Craftsmen and was awarded the Saddleworth Chamber of Commerce
-    Business of the Year award in 2019.`,
-    initial: "R",
-    tone: "dark",
-  },
-  {
-    name: "Daniel Hartley",
-    role: "Joiner & Project Manager",
-    bio: `Robert's son Daniel joined the family business in 2008 after completing his apprenticeship
-    at Oldham College. He manages all client projects from initial survey through to final snagging,
-    and leads the kitchen and fitted furniture side of the business. Daniel is particularly well-known
-    for his intricate detailing and his ability to solve the awkward structural problems that often
-    arise in older properties.`,
-    initial: "D",
-    tone: "mid",
-  },
-  {
-    name: "Sarah Brennan",
-    role: "Designer & Estimator",
-    bio: `Sarah joined Greenfield Carpentry in 2015, bringing a background in interior design that
-    has transformed how the business approaches commissions. She works with each client to develop
-    detailed plans and specifications, helps select timber species and finishes, and produces all
-    the detailed quotations. Her drawings bridge the gap between what a client imagines and what
-    the workshop can produce.`,
-    initial: "S",
-    tone: "warm",
-  },
-];
-
-const values = [
-  {
-    title: "Honesty",
-    desc: "We tell you what is possible, what it costs, and how long it will take — and we keep our word.",
-  },
-  {
-    title: "Quality",
-    desc: "We would rather do fewer jobs and do them properly. Every piece leaves the workshop to a standard we are proud of.",
-  },
-  {
-    title: "Sustainability",
-    desc: "We source timber from certified sustainable forests and use water-based finishes wherever possible.",
-  },
-  {
-    title: "Community",
-    desc: "We are part of Greenfield and Saddleworth. We support local suppliers, local apprentices, and local causes.",
-  },
-];
+import { team, values, accreditations } from "../data/index.ts";
 ---
 
 <Layout
@@ -171,28 +117,7 @@ const values = [
       </h2>
       <div class="accreds-grid">
         {
-          [
-            {
-              title: "Guild of Master Craftsmen",
-              detail:
-                "Full member since 2003. Only craftspeople meeting rigorous quality standards are admitted.",
-            },
-            {
-              title: "CSCS Registered",
-              detail:
-                "All site operatives hold current CSCS cards, ensuring health and safety competence.",
-            },
-            {
-              title: "FSC Certified Timber",
-              detail:
-                "We source timber exclusively from FSC-certified merchants committed to sustainable forestry.",
-            },
-            {
-              title: "Trustmark Registered",
-              detail:
-                "Trustmark is the Government-endorsed quality scheme for tradespeople working in and around the home.",
-            },
-          ].map((a) => (
+          accreditations.map((a) => (
             <div class="accred-card">
               <span class="accred-card__icon" aria-hidden="true">
                 ✦

@@ -1,113 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const categories = [
-  "All",
-  "Furniture",
-  "Kitchens",
-  "Staircases",
-  "Flooring",
-  "Restoration",
-];
-
-const projects = [
-  {
-    title: "Handmade Oak Kitchen",
-    category: "Kitchens",
-    tone: "warm",
-    size: "large",
-    location: "Uppermill",
-    year: "2024",
-  },
-  {
-    title: "Walnut Dining Table & Chairs",
-    category: "Furniture",
-    tone: "dark",
-    size: "normal",
-    location: "Greenfield",
-    year: "2024",
-  },
-  {
-    title: "Victorian Staircase Restoration",
-    category: "Staircases",
-    tone: "mid",
-    size: "tall",
-    location: "Delph",
-    year: "2023",
-  },
-  {
-    title: "Fitted Library & Study",
-    category: "Furniture",
-    tone: "light",
-    size: "normal",
-    location: "Dobcross",
-    year: "2023",
-  },
-  {
-    title: "Herringbone Oak Flooring",
-    category: "Flooring",
-    tone: "grain",
-    size: "normal",
-    location: "Mossley",
-    year: "2023",
-  },
-  {
-    title: "Painted Shaker Kitchen",
-    category: "Kitchens",
-    tone: "soft",
-    size: "large",
-    location: "Saddleworth",
-    year: "2023",
-  },
-  {
-    title: "Open-Riser Oak Staircase",
-    category: "Staircases",
-    tone: "dark",
-    size: "tall",
-    location: "Greenfield",
-    year: "2022",
-  },
-  {
-    title: "Antique Dresser Restoration",
-    category: "Restoration",
-    tone: "warm",
-    size: "normal",
-    location: "Diggle",
-    year: "2022",
-  },
-  {
-    title: "Custom Wardrobe Suite",
-    category: "Furniture",
-    tone: "mid",
-    size: "normal",
-    location: "Grasscroft",
-    year: "2022",
-  },
-  {
-    title: "Reclaimed Board Flooring",
-    category: "Flooring",
-    tone: "rustic",
-    size: "normal",
-    location: "Lydgate",
-    year: "2022",
-  },
-  {
-    title: "Home Office Joinery",
-    category: "Furniture",
-    tone: "light",
-    size: "normal",
-    location: "Uppermill",
-    year: "2021",
-  },
-  {
-    title: "Period Sash Window Restoration",
-    category: "Restoration",
-    tone: "grain",
-    size: "normal",
-    location: "Springhead",
-    year: "2021",
-  },
-];
+import { galleryCategories, galleryProjects, serviceAreas } from "../data/index.ts";
 ---
 
 <Layout
@@ -131,7 +24,7 @@ const projects = [
   >
     <div class="container gallery-filters__inner">
       {
-        categories.map((cat, i) => (
+        galleryCategories.map((cat, i) => (
           <button
             class={`filter-btn${i === 0 ? " filter-btn--active" : ""}`}
             data-filter={cat}
@@ -149,7 +42,7 @@ const projects = [
     <div class="container">
       <div class="gallery-grid" id="galleryGrid">
         {
-          projects.map((p) => (
+          galleryProjects.map((p) => (
             <article
               class={`gallery-item gallery-item--${p.size}`}
               data-category={p.category}
@@ -192,20 +85,7 @@ const projects = [
         area.
       </p>
       <div class="locations-list">
-        {
-          [
-            "Greenfield",
-            "Uppermill",
-            "Delph",
-            "Dobcross",
-            "Diggle",
-            "Mossley",
-            "Oldham",
-            "Tameside",
-            "Stockport",
-            "Manchester",
-          ].map((loc) => <span class="location-chip">{loc}</span>)
-        }
+        {serviceAreas.map((loc) => <span class="location-chip">{loc}</span>)}
       </div>
     </div>
   </section>

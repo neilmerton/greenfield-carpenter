@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { openingHours, serviceOptions } from "../data/index.ts";
 ---
 
 <Layout
@@ -86,13 +87,7 @@ import Layout from "../layouts/Layout.astro";
             <div class="select-wrap">
               <select class="form-select" id="service" name="service">
                 <option value="">— Select a service —</option>
-                <option>Bespoke Furniture</option>
-                <option>Kitchen Fitting</option>
-                <option>Staircase</option>
-                <option>Doors &amp; Windows</option>
-                <option>Hardwood Flooring</option>
-                <option>Restoration &amp; Repair</option>
-                <option>Other / Not Sure Yet</option>
+                {serviceOptions.map((opt) => <option>{opt}</option>)}
               </select>
               <span class="select-arrow" aria-hidden="true">▾</span>
             </div>
@@ -197,11 +192,7 @@ import Layout from "../layouts/Layout.astro";
           <table class="hours-table">
             <tbody>
               {
-                [
-                  { day: "Monday – Friday", hours: "8:00 am – 5:30 pm" },
-                  { day: "Saturday", hours: "9:00 am – 1:00 pm" },
-                  { day: "Sunday", hours: "Closed" },
-                ].map((row) => (
+                openingHours.map((row) => (
                   <tr>
                     <td class="hours-table__day">{row.day}</td>
                     <td class="hours-table__hours">{row.hours}</td>

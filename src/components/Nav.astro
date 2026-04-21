@@ -1,11 +1,5 @@
 ---
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+import { navLinks } from "../data/index.ts";
 
 const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
