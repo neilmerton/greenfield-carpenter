@@ -1,15 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { credentials, homeServices, galleryTeaser, testimonials } from "../data/index.ts";
+import {
+  credentials,
+  homeServices,
+  galleryTeaser,
+  testimonials,
+} from "../data/index.ts";
 ---
 
 <Layout
   title="Home"
   description="Greenfield Carpentry — bespoke joinery, furniture and woodworking in Greenfield, near Manchester since 1987."
 >
-  <!-- =====================
-       Hero
-       ===================== -->
   <section class="hero" aria-label="Introduction">
     <div class="hero__bg" aria-hidden="true"></div>
     <div class="container hero__content">
@@ -24,34 +26,19 @@ import { credentials, homeServices, galleryTeaser, testimonials } from "../data/
         <a href="/contact" class="btn btn--ghost">Get a Quote</a>
       </div>
     </div>
-    <div class="hero__scroll-hint" aria-hidden="true">
-      <span>Scroll</span>
-      <svg width="1" height="40" viewBox="0 0 1 40"
-        ><line
-          x1="0.5"
-          y1="0"
-          x2="0.5"
-          y2="40"
-          stroke="currentColor"
-          stroke-width="1"></line></svg
-      >
-    </div>
   </section>
 
-  <!-- =====================
-       Credentials strip
-       ===================== -->
-  <section class="creds" aria-label="Credentials">
-    <div class="container creds__grid">
+  <section class="credentials" aria-label="Credentials">
+    <div class="container credentials__grid">
       {
         credentials.map((c, i) => (
           <Fragment>
-            <div class="cred">
-              <span class="cred__number">{c.number}</span>
-              <span class="cred__label">{c.label}</span>
+            <div class="credential">
+              <span class="credential__number">{c.number}</span>
+              <span class="credential__label">{c.label}</span>
             </div>
             {i < credentials.length - 1 && (
-              <div class="cred__divider" aria-hidden="true"></div>
+              <div class="credential__divider" aria-hidden="true" />
             )}
           </Fragment>
         ))
@@ -59,9 +46,6 @@ import { credentials, homeServices, galleryTeaser, testimonials } from "../data/
     </div>
   </section>
 
-  <!-- =====================
-       About snippet
-       ===================== -->
   <section class="section" aria-label="About us">
     <div class="container about-home">
       <div class="about-home__image" aria-hidden="true">
@@ -96,9 +80,6 @@ import { credentials, homeServices, galleryTeaser, testimonials } from "../data/
     </div>
   </section>
 
-  <!-- =====================
-       Services overview
-       ===================== -->
   <section class="section section--alt" aria-label="Services overview">
     <div class="container">
       <div class="section-header">
@@ -132,9 +113,6 @@ import { credentials, homeServices, galleryTeaser, testimonials } from "../data/
     </div>
   </section>
 
-  <!-- =====================
-       Gallery teaser
-       ===================== -->
   <section class="section" aria-label="Recent work">
     <div class="container">
       <div class="section-header">
@@ -165,9 +143,6 @@ import { credentials, homeServices, galleryTeaser, testimonials } from "../data/
     </div>
   </section>
 
-  <!-- =====================
-       Testimonials
-       ===================== -->
   <section class="section section--dark" aria-label="Testimonials">
     <div class="container">
       <span class="section-label" style="color: var(--color-gold-light);"
@@ -189,9 +164,6 @@ import { credentials, homeServices, galleryTeaser, testimonials } from "../data/
     </div>
   </section>
 
-  <!-- =====================
-       CTA Banner
-       ===================== -->
   <section class="cta-banner" aria-label="Call to action">
     <div class="container cta-banner__inner">
       <div>
@@ -209,10 +181,9 @@ import { credentials, homeServices, galleryTeaser, testimonials } from "../data/
 </Layout>
 
 <style>
-  /* ---- Hero ---- */
   .hero {
     position: relative;
-    min-height: 90vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -288,30 +259,12 @@ import { credentials, homeServices, galleryTeaser, testimonials } from "../data/
     flex-wrap: wrap;
   }
 
-  .hero__scroll-hint {
-    position: absolute;
-    bottom: var(--space-8);
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
-    color: var(--color-wood-light);
-    opacity: 0.45;
-    font-family: var(--font-ui);
-    font-size: var(--text-xs);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  /* ---- Credentials ---- */
-  .creds {
+  .credentials {
     background: var(--color-wood-mid);
     padding-block: var(--space-8);
   }
 
-  .creds__grid {
+  .credentials__grid {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -319,7 +272,7 @@ import { credentials, homeServices, galleryTeaser, testimonials } from "../data/
     flex-wrap: wrap;
   }
 
-  .cred {
+  .credential {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -327,14 +280,14 @@ import { credentials, homeServices, galleryTeaser, testimonials } from "../data/
     text-align: center;
   }
 
-  .cred__number {
+  .credential__number {
     font-family: var(--font-heading);
     font-size: var(--text-2xl);
     color: var(--color-cream);
     line-height: 1;
   }
 
-  .cred__label {
+  .credential__label {
     font-family: var(--font-ui);
     font-size: var(--text-xs);
     letter-spacing: 0.12em;
@@ -342,7 +295,7 @@ import { credentials, homeServices, galleryTeaser, testimonials } from "../data/
     color: var(--color-wood-light);
   }
 
-  .cred__divider {
+  .credential__divider {
     display: none;
     width: 1px;
     height: 48px;
@@ -350,15 +303,14 @@ import { credentials, homeServices, galleryTeaser, testimonials } from "../data/
   }
 
   @media (min-width: 641px) {
-    .creds__grid {
+    .credentials__grid {
       gap: var(--space-12);
     }
-    .cred__divider {
+    .credential__divider {
       display: block;
     }
   }
 
-  /* ---- About home ---- */
   .about-home {
     display: grid;
     grid-template-columns: 1fr;
