@@ -127,7 +127,6 @@ import { openingHours, serviceOptions } from "../data/index.ts";
                 name="homeVisit"
                 class="form-check__input"
               />
-              <span class="form-check__box" aria-hidden="true"></span>
               <span class="form-check__label"
                 >I would like a free home visit and consultation</span
               >
@@ -356,46 +355,24 @@ import { openingHours, serviceOptions } from "../data/index.ts";
   }
 
   .form-check {
-    display: flex;
     align-items: center;
-    gap: var(--space-3);
     cursor: pointer;
-  }
-
-  .form-check__input {
-    display: none;
-  }
-
-  .form-check__box {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    background: var(--color-surface);
-    flex-shrink: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition:
-      background var(--transition),
-      border-color var(--transition);
-  }
-
-  .form-check__input:checked + .form-check__box {
-    background: var(--color-wood-mid);
-    border-color: var(--color-wood-mid);
-  }
-
-  .form-check__input:checked + .form-check__box::after {
-    content: "✓";
-    color: white;
-    font-size: 13px;
-    font-weight: bold;
+    gap: var(--space-3);
   }
 
   .form-check__label {
-    font-size: var(--text-sm);
     color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: normal;
+  }
+
+  .form-check__input {
+    accent-color: var(--color-accent);
+
+    &:focus-visible {
+      outline-color: var(--color-accent);
+    }
   }
 
   .btn--full {
