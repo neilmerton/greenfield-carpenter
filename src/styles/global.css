@@ -257,56 +257,58 @@ p:last-child {
    Buttons
    =========================== */
 .btn {
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
   display: inline-block;
   font-family: var(--font-ui);
   font-size: var(--text-sm);
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   padding: var(--space-3) var(--space-8);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: background var(--transition), color var(--transition), border-color var(--transition);
-  border: 2px solid transparent;
+  text-transform: uppercase;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
   white-space: nowrap;
+
+  &:focus-visible {
+    outline-color: var(--color-accent);
+    outline-offset: 4px;
+  }
 }
 
 .btn--primary {
-  background: var(--color-wood-mid);
-  color: var(--color-white);
+  background-color: var(--color-wood-mid);
   border-color: var(--color-wood-mid);
-}
-
-.btn--primary:hover {
-  background: var(--color-wood-dark);
-  border-color: var(--color-wood-dark);
   color: var(--color-white);
+
+  &:hover {
+    background-color: var(--color-wood-dark);
+    border-color: var(--color-wood-dark);
+    color: var(--color-white);
+  }
 }
 
 .btn--outline {
-  background: transparent;
-  color: var(--color-wood-mid);
+  background-color: transparent;
   border-color: var(--color-wood-mid);
-}
+  color: var(--color-wood-mid);
 
-.btn--outline:hover {
-  background: var(--color-wood-mid);
-  color: var(--color-white);
+  &:hover {
+    background-color: var(--color-wood-mid);
+    color: var(--color-white);
+  }
 }
 
 .btn--ghost {
-  background: transparent;
-  color: var(--color-parchment);
+  background-color: transparent;
   border-color: var(--color-parchment);
+  color: var(--color-parchment);
+
+  &:hover {
+    background-color: var(--color-parchment);
+    color: var(--color-wood-dark);
+  }
 }
 
-.btn--ghost:hover {
-  background: var(--color-parchment);
-  color: var(--color-wood-dark);
-}
-
-/* ===========================
-   Decorative divider
-   =========================== */
 .ornament {
   display: flex;
   align-items: center;
@@ -325,9 +327,6 @@ p:last-child {
   background: currentColor;
 }
 
-/* ===========================
-   Page header (inner pages)
-   =========================== */
 .page-header {
   background-color: var(--color-wood-dark);
   background-image:
@@ -366,9 +365,6 @@ p:last-child {
   line-height: var(--leading-loose);
 }
 
-/* ===========================
-   Cards
-   =========================== */
 .card {
   background: var(--color-surface);
   border: var(--border);
@@ -382,9 +378,6 @@ p:last-child {
   box-shadow: var(--shadow);
 }
 
-/* ===========================
-   Responsive helpers
-   =========================== */
 @media (min-width: 481px) {
   h1 {
     font-size: var(--text-3xl);
