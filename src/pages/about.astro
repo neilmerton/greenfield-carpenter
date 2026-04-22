@@ -24,7 +24,7 @@ import { team, values, accreditations } from "../data/index.ts";
         <p>
           Robert Hartley started Greenfield Carpentry in 1987 from a workshop at
           the bottom of his garden in Chew Valley Road. He had just enough space
-          for a bandsaw, a planer, and a bench — and enough talent to fill an
+          for a bandsaw, a planer, and a bench, and enough talent to fill an
           order book within six months purely by word of mouth.
         </p>
         <p>
@@ -55,7 +55,6 @@ import { team, values, accreditations } from "../data/index.ts";
     </div>
   </section>
 
-  <!-- Values -->
   <section class="section section--alt" aria-label="Our values">
     <div class="container">
       <span class="section-label">What We Stand For</span>
@@ -76,34 +75,6 @@ import { team, values, accreditations } from "../data/index.ts";
     </div>
   </section>
 
-  <!-- Team -->
-  <section class="section" aria-label="Our team">
-    <div class="container">
-      <span class="section-label">The People</span>
-      <h2 class="section-title">Meet the Team</h2>
-
-      <div class="team-grid">
-        {
-          team.map((member) => (
-            <article class="team-card">
-              <div
-                class={`team-card__portrait team-card__portrait--${member.tone}`}
-              >
-                <span class="team-card__initial">{member.initial}</span>
-              </div>
-              <div class="team-card__body">
-                <h3 class="team-card__name">{member.name}</h3>
-                <span class="team-card__role">{member.role}</span>
-                <p class="team-card__bio">{member.bio}</p>
-              </div>
-            </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Accreditations -->
   <section class="section section--dark" aria-label="Accreditations">
     <div class="container">
       <span class="section-label" style="color: var(--color-gold-light);"
@@ -115,15 +86,15 @@ import { team, values, accreditations } from "../data/index.ts";
       >
         Accreditations & Memberships
       </h2>
-      <div class="accreds-grid">
+      <div class="accreditations-grid">
         {
           accreditations.map((a) => (
-            <div class="accred-card">
-              <span class="accred-card__icon" aria-hidden="true">
+            <div class="accreditations-card">
+              <span class="accreditations-card__icon" aria-hidden="true">
                 ✦
               </span>
-              <h3 class="accred-card__title">{a.title}</h3>
-              <p class="accred-card__detail">{a.detail}</p>
+              <h3 class="accreditations-card__title">{a.title}</h3>
+              <p class="accreditations-card__detail">{a.detail}</p>
             </div>
           ))
         }
@@ -131,7 +102,6 @@ import { team, values, accreditations } from "../data/index.ts";
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="section" style="text-align: center;">
     <div class="container">
       <h2 class="section-title">Come and Visit the Workshop</h2>
@@ -377,18 +347,18 @@ import { team, values, accreditations } from "../data/index.ts";
   }
 
   /* Accreditations */
-  .accreds-grid {
+  .accreditations-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
 
-  .accred-card {
+  .accreditations-card {
     border-left: 2px solid rgba(196, 149, 42, 0.4);
     padding-left: var(--space-6);
   }
 
-  .accred-card__icon {
+  .accreditations-card__icon {
     display: block;
     color: var(--color-gold);
     font-size: var(--text-lg);
@@ -396,14 +366,14 @@ import { team, values, accreditations } from "../data/index.ts";
     opacity: 0.7;
   }
 
-  .accred-card__title {
+  .accreditations-card__title {
     font-family: var(--font-heading);
     font-size: var(--text-md);
     color: var(--color-cream);
     margin-bottom: var(--space-3);
   }
 
-  .accred-card__detail {
+  .accreditations-card__detail {
     font-size: var(--text-sm);
     color: var(--color-wood-light);
     line-height: var(--leading-loose);
@@ -412,12 +382,12 @@ import { team, values, accreditations } from "../data/index.ts";
   }
 
   @media (min-width: 561px) {
-    .accreds-grid {
+    .accreditations-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
   @media (min-width: 901px) {
-    .accreds-grid {
+    .accreditations-grid {
       grid-template-columns: repeat(4, 1fr);
     }
   }
