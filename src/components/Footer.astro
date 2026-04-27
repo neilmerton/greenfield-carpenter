@@ -19,7 +19,7 @@ const year = new Date().getFullYear();
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">Quick Links</h4>
+        <p class="footer-heading">Quick Links</p>
         <ul class="footer-links">
           {
             navLinks.map((link) => {
@@ -34,7 +34,7 @@ const year = new Date().getFullYear();
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">Services</h4>
+        <p class="footer-heading">Services</p>
         <ul class="footer-links">
           {
             services.map((service) => {
@@ -49,7 +49,7 @@ const year = new Date().getFullYear();
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">Get in Touch</h4>
+        <p class="footer-heading">Get in Touch</p>
         <address class="footer-address">
           <p>Greenfield, Oldham<br />Greater Manchester<br />OL3 7EA</p>
           <p><a href="tel:+441457860000">01457 860 000</a></p>
@@ -75,26 +75,26 @@ const year = new Date().getFullYear();
 
 <style>
   .site-footer {
-    background: var(--color-footer-bg);
-    color: var(--color-parchment);
-    padding-top: var(--space-20);
-    padding-bottom: var(--space-8);
+    background-color: var(--color-footer-bg);
     border-top: 3px solid var(--color-gold);
+    color: var(--color-parchment);
+    padding-bottom: var(--space-8);
+    padding-top: var(--space-20);
   }
 
   .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-10);
-    padding-bottom: var(--space-12);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: grid;
+    gap: var(--space-10);
+    grid-template-columns: 1fr;
+    padding-bottom: var(--space-12);
   }
 
   .footer-logo {
-    font-family: var(--font-heading);
-    font-size: var(--text-xl);
     color: var(--color-parchment);
     display: block;
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
     margin-bottom: var(--space-4);
   }
 
@@ -103,17 +103,17 @@ const year = new Date().getFullYear();
   }
 
   .footer-strap-line {
-    font-size: var(--text-sm);
     color: var(--color-wood-light);
+    font-size: var(--text-sm);
     line-height: var(--leading-loose);
     margin-bottom: var(--space-4);
   }
 
   .footer-cert {
+    color: var(--color-gold-light);
     font-family: var(--font-ui);
     font-size: var(--text-xs);
     letter-spacing: 0.08em;
-    color: var(--color-gold-light);
     text-transform: uppercase;
   }
 
@@ -122,12 +122,12 @@ const year = new Date().getFullYear();
   }
 
   .footer-heading {
+    color: var(--color-gold-light);
     font-family: var(--font-ui);
     font-size: var(--text-xs);
     letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--color-gold-light);
     margin-bottom: var(--space-4);
+    text-transform: uppercase;
   }
 
   .footer-links {
@@ -137,28 +137,24 @@ const year = new Date().getFullYear();
   }
 
   .footer-links a {
-    font-size: var(--text-sm);
     color: var(--color-parchment);
-    opacity: 0.75;
-    transition:
-      opacity var(--transition),
-      color var(--transition);
+    font-size: var(--text-sm);
+    transition: color var(--transition);
   }
 
   .footer-links a:hover {
-    opacity: 1;
     color: var(--color-wood-light);
   }
 
   .footer-address {
-    font-style: normal;
+    color: var(--color-parchment);
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
     font-size: var(--text-sm);
-    color: var(--color-parchment);
-    opacity: 0.8;
+    font-style: normal;
+    gap: var(--space-3);
     line-height: var(--leading-loose);
+    opacity: 0.8;
   }
 
   .footer-address a {
@@ -181,18 +177,18 @@ const year = new Date().getFullYear();
   }
 
   .footer-copy {
+    color: var(--color-cream);
     font-family: var(--font-ui);
     font-size: var(--text-xs);
-    color: var(--color-parchment);
     opacity: 0.5;
     margin: 0;
   }
 
   .footer-note {
+    color: var(--color-cream);
     font-family: var(--font-body);
-    font-style: italic;
     font-size: var(--text-sm);
-    color: var(--color-wood-light);
+    font-style: italic;
     opacity: 0.6;
     margin: 0;
   }
