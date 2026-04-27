@@ -216,13 +216,13 @@ p:last-child {
 
 /* Section headings */
 .section-label {
+  color: var(--color-accent);
   display: block;
   font-family: var(--font-ui);
   font-size: var(--text-xs);
   letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-gold);
   margin-bottom: var(--space-3);
+  text-transform: uppercase;
 }
 
 .section-title {
@@ -232,24 +232,24 @@ p:last-child {
 }
 
 .section-intro {
-  font-size: var(--text-md);
   color: var(--color-text-muted);
-  max-width: 60ch;
+  font-size: var(--text-md);
   line-height: var(--leading-loose);
+  max-width: 60ch;
 }
 
 .title-rule {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: var(--space-4);
   margin-bottom: var(--space-8);
 }
 
 .title-rule::after {
+  background-color: var(--color-gold);
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--color-gold);
   opacity: 0.4;
 }
 
