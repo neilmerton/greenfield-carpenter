@@ -265,6 +265,7 @@ p:last-child {
   font-size: var(--text-sm);
   letter-spacing: 0.1em;
   padding: var(--space-3) var(--space-8);
+  text-align: center;
   text-transform: uppercase;
   transition: background-color var(--transition), color var(--transition), border-color var(--transition);
   white-space: nowrap;

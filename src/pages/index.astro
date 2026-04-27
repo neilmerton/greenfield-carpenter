@@ -57,24 +57,22 @@ import {
       </div>
       <div class="about-home__text">
         <span class="section-label">Our Story</span>
-        <h2 class="section-title">
-          Craftsmanship Passed<br />Down Through Generations
-        </h2>
+        <h2 class="section-title">Craftsmanship Over Flatpack</h2>
         <p>
-          Founded by master craftsman Robert Hartley in 1987, Greenfield
-          Carpentry has built a reputation for uncompromising quality across the
-          Saddleworth valley and Greater Manchester.
+          Founded by master craftsman Steve Dixon in 1987, Greenfield Carpentry
+          has built a reputation for uncompromising quality across the
+          Saddleworth valley and Greater Manchester areas.
         </p>
         <p>
           Every piece we make begins with a conversation. We take time to
-          understand how you live, what you need, and what will endure — then we
+          understand how you live, what you need, and what will endure. Then we
           set to work with seasoned hardwoods, traditional joinery techniques,
           and an eye for detail that never wavers.
         </p>
         <a
           href="/about"
           class="btn btn--outline"
-          style="margin-top: var(--space-6);">Meet the Team</a
+          style="margin-top: var(--space-6);">Learn more</a
         >
       </div>
     </div>
@@ -89,7 +87,7 @@ import {
         </div>
         <p class="section-intro">
           From bespoke fitted furniture to full kitchen installations, every job
-          receives the same care and attention — however large or small.
+          receives the same care and attention, no matter how large or small.
         </p>
       </div>
 
@@ -97,9 +95,6 @@ import {
         {
           homeServices.map((s) => (
             <article class="service-card">
-              <span class="service-card__icon" aria-hidden="true">
-                {s.icon}
-              </span>
               <h3 class="service-card__title">{s.title}</h3>
               <p class="service-card__desc">{s.desc}</p>
             </article>
@@ -182,20 +177,18 @@ import {
 
 <style>
   .hero {
-    position: relative;
-    min-height: 80vh;
-    display: flex;
     align-items: center;
-    overflow: hidden;
     background: var(--color-wood-darkest);
+    display: flex;
+    min-height: 60vh;
+    overflow: hidden;
+    position: relative;
   }
 
   .hero__bg {
-    position: absolute;
-    inset: 0;
     background-image:
       repeating-linear-gradient(
-        92deg,
+        90deg,
         transparent,
         transparent 4px,
         rgba(255, 255, 255, 0.012) 4px,
@@ -213,44 +206,46 @@ import {
         rgba(122, 74, 40, 0.35) 0%,
         transparent 65%
       );
+    inset: 0;
+    position: absolute;
   }
 
   .hero__content {
+    max-width: 660px;
+    padding-block: var(--space-32);
     position: relative;
     z-index: 1;
-    padding-block: var(--space-32);
-    max-width: 660px;
   }
 
   .hero__label {
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(196, 149, 42, 0.4);
+    color: var(--color-gold-light);
     display: inline-block;
     font-family: var(--font-ui);
     font-size: var(--text-xs);
     letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--color-gold-light);
     margin-bottom: var(--space-5);
     padding: var(--space-2) var(--space-4);
-    border: 1px solid rgba(196, 149, 42, 0.4);
-    border-radius: var(--radius-sm);
+    text-transform: uppercase;
   }
 
   .hero__title {
+    color: var(--color-cream);
     font-family: var(--font-heading);
     font-size: clamp(3rem, 7vw, 5rem);
-    line-height: 1.05;
-    color: var(--color-cream);
     font-weight: normal;
     letter-spacing: 0.01em;
+    line-height: 1.05;
     margin-bottom: var(--space-6);
   }
 
   .hero__lead {
-    font-size: var(--text-md);
     color: var(--color-wood-light);
+    font-size: var(--text-md);
     line-height: var(--leading-loose);
-    max-width: 48ch;
     margin-bottom: var(--space-10);
+    max-width: 48ch;
   }
 
   .hero__actions {
@@ -260,22 +255,22 @@ import {
   }
 
   .credentials {
-    background: var(--color-wood-mid);
+    background-color: var(--color-wood-mid);
     padding-block: var(--space-8);
   }
 
   .credentials__grid {
-    display: flex;
     align-items: center;
-    justify-content: center;
+    display: flex;
     gap: var(--space-8);
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .credential {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: var(--space-1);
     text-align: center;
   }
@@ -547,7 +542,7 @@ import {
     opacity: 0.7;
   }
 
-  @media (min-width: 901px) {
+  @media (min-width: 900px) {
     .testimonials-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-8);
@@ -591,7 +586,16 @@ import {
   .cta-banner__actions {
     display: flex;
     gap: var(--space-4);
-    flex-wrap: wrap;
+    flex-direction: column;
     flex-shrink: 0;
+    flex-wrap: wrap;
+
+    @media (min-width: 561px) {
+      flex-direction: row;
+    }
+
+    .btn--primary {
+      border-color: var(--color-wood-dark);
+    }
   }
 </style>
